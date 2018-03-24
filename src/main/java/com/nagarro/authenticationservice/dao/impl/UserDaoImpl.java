@@ -40,7 +40,7 @@ public class UserDaoImpl implements UserDao {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("select count(*) from user");
 			rs.next();
-			result = rs.getInt(0);
+			result = rs.getInt(1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
