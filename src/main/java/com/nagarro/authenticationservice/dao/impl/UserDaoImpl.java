@@ -39,6 +39,7 @@ public class UserDaoImpl implements UserDao {
 					"jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database + "?useSSL=false", dbUser, dbPassword);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("select count(*) from user");
+			rs.next();
 			result = rs.getInt(0);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
