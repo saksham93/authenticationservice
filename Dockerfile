@@ -1,3 +1,4 @@
-FROM openjdk:8-jdk-alpine
-WORKDIR /authenticationservice
-CMD ["java -jar /target/authenticationservice-0.0.1-SNAPSHOT.jar -Dserver.port=8081"]
+COPY ./target/authenticationservice-0.0.1-SNAPSHOT.jar /home/saksham/apps/
+WORKDIR /home/saksham/apps/
+EXPOSE 8081
+CMD ["java", "-jar", "authenticationservice-0.0.1-SNAPSHOT.jar"]
