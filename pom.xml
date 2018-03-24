@@ -53,6 +53,9 @@
 							<mainClass>com.nagarro.authenticationservice.App</mainClass>
 						</manifest>
 					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 				</configuration>
 				<executions>
 					<execution>
@@ -65,5 +68,6 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>${artifactId}-${version}.jar</finalName>
 	</build>
 </project>
