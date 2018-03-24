@@ -15,6 +15,7 @@
 		<version>1.2.0.RELEASE</version>
 	</parent>
 	<properties>
+		<docker.image.prefix>saksham93</docker.image.prefix>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
