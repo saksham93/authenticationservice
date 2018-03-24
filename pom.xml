@@ -68,6 +68,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>${artifactId}-${version}.jar</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 	</build>
 </project>
