@@ -9,11 +9,19 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nagarro.authenticationservice.dao.UserDao;
+
 @Named
 @Path("/")
 public class UserRest {
 
 	private static final List<User> USERS = new ArrayList<>();
+	
+	@Autowired
+	private final UserDao userDao;
+	
 	static {
 		User user1 = new User(1L, "Sakshan", "saksham");
 		USERS.add(user1);
@@ -21,7 +29,8 @@ public class UserRest {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<User> getCustomers() {
-		return USERS;
+	public Integer getCustomers() {
+		
+		return userDao.getUsers();
 	}
 }
