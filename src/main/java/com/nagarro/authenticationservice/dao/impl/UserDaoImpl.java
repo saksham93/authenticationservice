@@ -15,10 +15,10 @@ import com.nagarro.authenticationservice.dao.UserDao;
 public class UserDaoImpl implements UserDao {
 	@Value("${DB_HOST}")
 	private String dbHost;
-	
+
 	@Value("${DB_PORT}")
 	private String dbPort;
-	
+
 	@Value("${DATABASE}")
 	private String database;
 
@@ -30,24 +30,27 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public Integer getUsers() {
-		  Connection conn;
-		  Integer result = -1;
+		Connection conn;
+		Integer result = -1;
 		try {
-			conn = DriverManager.getConnection(
-			           "jdbc:mysql://"+dbHost+":"+dbPort+"/"+database, dbUser, dbPassword);
-	         Statement stmt = conn.createStatement();
-	         ResultSet rs = stmt.executeQuery("select count(*) from user"); 
-	         result = rs.getInt(0);
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database, dbUser,
+					dbPassword);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select count(*) from user");
+			result = rs.getInt(0);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	               // MySQL: "jdbc:mysql://hostname:port/databaseName", "username", "password"
-	 
-	         // Step 2: Allocate a 'Statement' object in the Connection
+		// MySQL: "jdbc:mysql://hostname:port/databaseName", "username", "password"
+		catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// Step 2: Allocate a 'Statement' object in the Connection
 		return result;
 	}
-	
-	
 
 }
