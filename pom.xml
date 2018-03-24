@@ -72,6 +72,10 @@
 							<groupId>com.sun.jersey</groupId>
 							<artifactId>jersey-servlet</artifactId>
 						</dependency>
+						<dependency>
+							<groupId>com.nagarro</groupId>
+							<artifactId>authenticationservice</artifactId>
+						</dependency>
 					</requiresUnpack>
 				</configuration>
 				<executions>
