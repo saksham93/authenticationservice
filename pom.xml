@@ -59,6 +59,20 @@
 					<fork>true</fork>
 					<mainClass>com.nagarro.authenticationservice.App</mainClass>
 					<layout>JAR</layout>
+					<requiresUnpack>
+						<dependency>
+							<groupId>com.sun.jersey</groupId>
+							<artifactId>jersey-server</artifactId>
+						</dependency>
+						<dependency>
+							<groupId>com.sun.jersey</groupId>
+							<artifactId>jersey-core</artifactId>
+						</dependency>
+						<dependency>
+							<groupId>com.sun.jersey</groupId>
+							<artifactId>jersey-servlet</artifactId>
+						</dependency>
+					</requiresUnpack>
 				</configuration>
 				<executions>
 					<execution>
