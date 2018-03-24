@@ -20,7 +20,7 @@ public class UserRest {
 	private static final List<User> USERS = new ArrayList<>();
 	
 	@Autowired
-	private final UserDao userDao;
+	private  UserDao userDao;
 	
 	static {
 		User user1 = new User(1L, "Sakshan", "saksham");
