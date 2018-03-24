@@ -34,8 +34,9 @@ public class UserDaoImpl implements UserDao {
 		Integer result = -1;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database, dbUser,
-					dbPassword);
+			System.out.println(dbHost + " " + dbPort + " " + database + " " + dbUser + " " + dbPassword);
+			conn = DriverManager.getConnection(
+					"jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database + "?useSSL=false", dbUser, dbPassword);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("select count(*) from user");
 			result = rs.getInt(0);
