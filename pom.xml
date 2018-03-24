@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.0.RELEASE</version>
+		<version>2.0.0.RELEASE</version>
 	</parent>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -53,9 +53,6 @@
 							<mainClass>com.nagarro.authenticationservice.App</mainClass>
 						</manifest>
 					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
 				</configuration>
 				<executions>
 					<execution>
