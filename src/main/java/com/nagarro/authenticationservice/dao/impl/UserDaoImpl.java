@@ -28,19 +28,23 @@ public class UserDaoImpl implements UserDao {
 	@Value("${DB_USER}")
 	private String dbUser;
 
+
+
 	@Override
-	public Integer getUsers() {
+	public Boolean authenticate(String id, String password) {
 		Connection conn;
-		Integer result = -1;
+		Boolean result = Boolean.FALSE;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println(dbHost + " " + dbPort + " " + database + " " + dbUser + " " + dbPassword);
 			conn = DriverManager.getConnection(
 					"jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database + "?useSSL=false", dbUser, dbPassword);
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select count(*) from user");
-			rs.next();
-			result = rs.getInt(1);
+			ResultSet rs = stmt.executeQuery(
+					"select * from user where user_name = '" + id + "' " + "AND password = '" + password + "'");
+			if (rs.next()) {
+				result = Boolean.TRUE;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

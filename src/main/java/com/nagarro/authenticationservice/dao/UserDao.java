@@ -2,7 +2,8 @@ package com.nagarro.authenticationservice.dao;
 
 public interface UserDao {
 	
-	Integer getUsers();
+
+	Boolean authenticate(String id, String password);
 	
 
 }
