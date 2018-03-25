@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nagarro.authenticationservice.dao.UserDao;
@@ -17,20 +18,18 @@ import com.nagarro.authenticationservice.dao.UserDao;
 public class UserRest {
 
 	private static final List<User> USERS = new ArrayList<>();
-	
+
 	@Autowired
-	private  UserDao userDao;
-	
+	private UserDao userDao;
+
 	static {
 		User user1 = new User(1L, "Sakshan", "saksham");
 		USERS.add(user1);
 	}
 
-	@RequestMapping("/")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
 	public Integer getCustomers() {
-		
+
 		return userDao.getUsers();
 	}
 }
